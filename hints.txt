@@ -1,0 +1,11 @@
+/*
+  If you require() a json file:
+   Javascript will automatically convert to an object for you 
+   BUT, the file is only read ONCE, so if you update the file, Express won't know it 
+
+  If you use fs.readFile()
+    Javascript will NOT automatically convert to an object for you 
+    BUT, the file is re-read every time you call the fs.readFile() method 
+*/
+
+always use res.json to return files

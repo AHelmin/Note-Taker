@@ -1,3 +1,5 @@
+//MAKE SURE TO FOLLOW PATHING THROUGH THE CODE IN THIS ASSIGNMENT, FETCH ROUTES ARE THE KEY THING FOR THIS ASSIGNMENT
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -116,7 +118,7 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-// Render the list of note titles
+// Render the list of note titles, IMPORTANT THIS IS WHERE THE API COMES BACK AND IS WRITTEN
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
