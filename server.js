@@ -1,6 +1,7 @@
 //import express
 const express = require('express');
-const db = require('./db/db.json')
+const db = require('./db/db.json');
+const fs = require('fs')
 
 // Import built-in Node.js package 'path' to resolve path of files that are located on the server
 const path = require('path');
@@ -26,8 +27,20 @@ app.get('/notes', (req, res) =>
 
 //adds a listener for post requests
 app.post('/api/notes', (req, res) => {
+  // const { title, text } = req.body;
   const data = req.body;
+  console.log(data)
+  console.log(db)
   db.push(data);
+  fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+   } )
+});
+
+//adds a listener for delete requests
+app.delete('/api/notes/:id', (req, res) => {
+  console.log(req.params.id)
 })
 
 //adds a listener for GET request
