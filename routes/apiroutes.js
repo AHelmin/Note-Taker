@@ -11,9 +11,7 @@ router.post('/notes', (req, res) => {
         ...req.body,
         id: uuidv4()
     }
-    console.log(data)
-    console.log(db)
-    db.push(data);
+     db.push(data);
     fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
@@ -28,12 +26,10 @@ router.delete('/notes/:id', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(data)
             const notes = JSON.parse(data);
             const filteredNotes = notes.filter((note) => note.id !== req.params.id);
             fs.writeFile('./db/db.json', JSON.stringify(filteredNotes), (err) => {
                 if (err) throw err;
-                console.log('The file has been saved!');
                 res.status(200).json(filteredNotes);
             })
         }
@@ -45,8 +41,7 @@ router.get('/notes', (req, res) => {
     fs.readFile('./db/db.json', 'utf-8', (err, data) => {
         if (err) {
             console.log(err);
-        } else {
-            console.log(data)
+        } else {          
             res.json(JSON.parse(data))
         }
     })
