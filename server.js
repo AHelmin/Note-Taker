@@ -1,7 +1,3 @@
-//TODO
-//need to fix fs.readFile
-//need to add ids, ask about uuid package
-//refactor? and use routes
 
 //import express
 const express = require('express');
