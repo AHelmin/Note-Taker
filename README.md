@@ -16,11 +16,11 @@ To start using the Note Taker navigate to the website above and click on the 'Ge
 
 ![Get Started](./public/assets/images/Note_Taker_Get_Started.png)
 
-To enter a new note, click in the title area and enter a title. Then click in the text area and add the content of your note. To clear the note creation area, click on the plus icon to start a new note.
+To enter a new note, click in the title area and enter a title. Then click in the text area and add the content of your note. To save the note, click on the disc icon in the upper right corner. To clear the note creation area, click on the plus icon to start a new note.
 
 ![How To Add Note](./public/assets/images/Add_Save_Note.png)
 
-The note will automatically be added to the saved note column. To view the note, click on the title and the note will be displayed to the right. To delete a note click on the trash bin icon.
+The note will automatically be added to the saved note column upon save. To view the note, click on the title and the note will be displayed to the right. To delete a note click on the trash bin icon.
 
 ![Saved Notes and Delete Notes](./public/assets/images/Saved_Notes.png)
 
