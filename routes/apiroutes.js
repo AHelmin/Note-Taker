@@ -7,17 +7,25 @@ const { v4: uuidv4 } = require('uuid');
 //adds a listener for post requests
 router.post('/notes', (req, res) => {
     // const { title, text } = req.body;
-    const data = {
-        ...req.body,
-        id: uuidv4()
-    }
-     db.push(data);
-    fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-        res.status(200).json(db);
+    //should readfile first, then parse***********
+    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            const notes = JSON.parse(data);
+            const newData = {
+                ...req.body,
+                id: uuidv4()
+            }
+            notes.push(newData);
+            fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+                res.status(200).json(notes);
+            })
+        }
     })
-});
+})
 
 //adds a listener for delete requests
 router.delete('/notes/:id', (req, res) => {
@@ -41,7 +49,7 @@ router.get('/notes', (req, res) => {
     fs.readFile('./db/db.json', 'utf-8', (err, data) => {
         if (err) {
             console.log(err);
-        } else {          
+        } else {
             res.json(JSON.parse(data))
         }
     })
